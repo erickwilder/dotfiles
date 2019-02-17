@@ -51,6 +51,7 @@ TRAPHUP() {
 alias ae='vim $yadr/zsh/aliases.zsh' #alias edit
 alias ar='source $yadr/zsh/aliases.zsh'  #alias reload
 alias gar="killall -HUP -u \"$USER\" zsh"  #global alias reload
+alias zr='source $HOME/.zshrc'
 
 # vim using
 mvim --version > /dev/null 2>&1
@@ -172,14 +173,14 @@ alias rdm='rake db:migrate'
 alias rdmr='rake db:migrate:redo'
 
 # Zeus
-alias zs='zeus server'
-alias zc='zeus console'
-alias zr='zeus rspec'
-alias zrc='zeus rails c'
-alias zrs='zeus rails s'
-alias zrdbm='zeus rake db:migrate'
-alias zrdbtp='zeus rake db:test:prepare'
-alias zzz='rm .zeus.sock; pkill zeus; zeus start'
+# alias zs='zeus server'
+# alias zc='zeus console'
+# alias zr='zeus rspec'
+# alias zrc='zeus rails c'
+# alias zrs='zeus rails s'
+# alias zrdbm='zeus rake db:migrate'
+# alias zrdbtp='zeus rake db:test:prepare'
+# alias zzz='rm .zeus.sock; pkill zeus; zeus start'
 
 # Rspec
 alias rs='rspec spec'
