@@ -3,32 +3,35 @@
     | |___| |_____  __| | ____
     |_____  (____ |/ _  |/ ___)
      _____| / ___ ( (_| | |
-    (_______\_____|\____|_|
+    (_______\_____|\____|_| Slim
 
-    # Yet Another Dotfile Repo v1.1
-    # Now with Prezto and Vundle!
+#### Installation
+```
+sh -c "\`curl -fsSL https://raw.githubusercontent.com/erickwilder/master/install.sh \`"
+```
+> Always be sure to run `rake update` after pulling to ensure plugins are updated
 
-[![Join the chat at https://gitter.im/skwp/dotfiles](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/skwp/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+## What is YADR-Slim?
 
-#### sh -c "\`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh \`"
+**YADR-Slim is an opinionated dotfile repo that will make your heart sing**
 
-**Always be sure to run `rake update` after pulling to ensure plugins are updated**
+It is based on the original [skwp/dotfiles](https://github.com/skwp/dotfiles) repository but without Ruby support and some other changes:
 
-## What is YADR?
+> ℹ️`-Slim` was added to the name to make it stand out and not create confusion with the original project.
 
-**YADR is an opinionated dotfile repo that will make your heart sing**
+  * No active Ruby support - I write mostly Python
+  * It uses Dracula theme instead of Solarized
+  * It includes _only_ Fira Code instead of 5 different fonts.
+  * No macvim installation - just the command line Vim
+
+All the reat should be the same:
 
   * The best bits of all the top dotfile repos, vim and zsh plugins curated in one place, into a simple and cohesive way of working.
   * More than 90 vim plugins, all under one roof, working together, each plugin researched and configured to be at its best, often with better shortcut keys.
   * Many zsh plugins, starting with the wonderful Prezto base, and adding a few niceties on top.
   * All things are vimized: irb, postgres command line, etc.
 
-*Linux/Ubuntu is not supported! If it works, great. If it doesn't, please don't complain. You may need to install zsh if you don't already have it.*
-*That being said, check the Docker section below*
-
-## Mailing List
-
-Got questions, concerns, want to hear announcements? Join the [Google Group](https://groups.google.com/forum/#!forum/yadr-users)
+> :warning: Windows and Linux are not officially supported. If it doesn't work, please submit patches to this repository. Please note that macOS features __must not break__ when doing so.
 
 Please use GitHub Issues for pull requests or bug reports only.
 
@@ -41,23 +44,29 @@ Please use GitHub Issues for pull requests or bug reports only.
 To get started please run:
 
 ```bash
-sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
+sh -c "`curl -fsSL https://raw.githubusercontent.com/erickwilder/master/install.sh`"
 ```
 
-**Note:** YADR will automatically install all of its subcomponents. If you want to be asked
+**Note:** YADR-slim will automatically install all of its subcomponents. If you want to be asked
 about each one, use:
 
 ```bash
-sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`" -s ask
+sh -c "`curl -fsSL https://raw.githubusercontent.com/erickwilder/master/install.sh`" -s ask
 ```
 
 ## Wait, you're not done! Do this:
 
-#### Install iTerm Solarized Colors
-YADR will install Solarized colorschemes into your iTerm. Go to Profiles => Colors => Load Presets to pick Solarized Dark.
+#### Install iTerm Dracula Theme
+YADR-Slim will install Dracula color schemes into your iTerm. Go to Profiles => Colors => Load Presets to pick Dracula.
 
-#### Remap caps-lock to escape with [Karabiner-Elements](https://pqrs.org/osx/karabiner/index.html)
+#### Remap caps-lock to escape
 The escape key is the single most used key in vim.  Old keyboards used to have Escape where Tab is today. Apple keyboards are the worst with their tiny Esc keys. But all this is fixed by remapping Caps to Escape.  If you're hitting a small target in the corner, you are slowing yourself down considerably, and probably damaging your hands with repetitive strain injuries.
+
+* Go to System Preferences => Keyboard
+* Press the Modifier Keys... button
+* Change Caps Lock Key function to Escape using the dropdown menu
+
+> You may use [Karabiner-Elements](https://pqrs.org/osx/karabiner/index.html) if you need to remap more keys.
 
 #### Set up a system wide hotkey for iTerm (Keys=>Hotkey)
 Recommended Cmd-Escape, which is really Cmd-Capslock.
@@ -70,8 +79,8 @@ Same as iTerm. The native spaces navigation slows everything down for no reason.
 
 ## If you want to run vim in terminal
 
-* Make sure you install Solarized colorscheme in your terminal!
-* If you don't want to use solarized terminal, then make sure you do this:
+* Make sure you install Dracula color scheme in your terminal
+* If you don't want to use Dracula terminal, then make sure you do this:
 
       let g:yadr_using_unsolarized_terminal = 1
       # in ~/.vimrc.before
@@ -93,7 +102,7 @@ rake update
 
 ## What's included, and how to customize?
 
-Read on to learn what YADR provides!
+Read on to learn what YADR-Slim provides!
 
 ### [Homebrew](https://brew.sh/)
 
@@ -122,11 +131,12 @@ mnemonic aliases. Please feel free to edit them:
 
     ae # alias edit
     ar # alias reload
+    zr # reload zsh
 
 
 ### Git Customizations:
 
-YADR will take over your `~/.gitconfig`, so if you want to store your usernames, please put them into `~/.gitconfig.user`
+YADR-Slim will take over your `~/.gitconfig`, so if you want to store your usernames, please put them into `~/.gitconfig.user`
 
 It is recommended to use this file to set your user info. Alternately, you can set the appropriate environment variables in your `~/.secrets`.
 
@@ -143,9 +153,6 @@ It is recommended to use this file to set your user info. Alternately, you can s
   * Slightly improved colors for diff
   * `gdmb` (g)it (d)elete (m)erged (b)ranches - Deletes all branches already merged on current branch
 
-### RubyGems
-
-A .gemrc is included. Never again type `gem install whatever --no-ri --no-rdoc`. `--no-ri --no-rdoc` is done by default.
 
 ### Tmux configuration
 
@@ -157,11 +164,6 @@ You can customize the configuration in `~/.tmux.conf.user`.
 The provided inputrc and editrc will turn your various command line tools like mysql and irb into vim prompts. There's
 also an included Ctrl-R reverse history search feature in editrc, very useful in irb, postgres command line, and etc.
 
-### Github Issues: [ghi gem](https://github.com/stephencelis/ghi)
-
-We include the `ghi` command. Try `ghi list` and have fun managing issues from command line!
-
-
 ## Vim - What's included?
 
  * [Navigation - NERDTree, EasyMotion, CtrlP and more](doc/vim/navigation.md)
@@ -170,7 +172,7 @@ We include the `ghi` command. Try `ghi list` and have fun managing issues from c
  * [Utils - indents, paste buffer management, lots more](doc/vim/utils.md)
  * [General enhancements that don't add new commands](doc/vim/enhancements.md)
 
-A list of some of the most useful commands that YADR provides in vim are
+A list of some of the most useful commands that YADR-Slim provides in vim are
 included below. This is not a comprehensive list. To get deeper knowledge,
 practice a few of these every day, and then start looking into the lists
 of plugins above to learn more.
@@ -260,29 +262,21 @@ of plugins above to learn more.
  * `Cmd-/` - toggle comments (usually gcc from tComment) (`Alt` in Linux)
  * `gcp` (comment a paragraph)
 
-#### Rails & Ruby
-
- * `,vv` and `,cc` to switch between view and controller - these are maps to :Rcontroller and :Rview. Explore the :R<Tab> family of commands for more fun from rails.vim!
- * `,rs` and `,rl` to run rspec or a spec line in iTerm (check iTerm window for results)
- * `,ss` and `,sl` for the same using `spring rspec` which makes your Rails specs faster by caching the Rails env (must have spring gem installed)
- * vim-ruby-refactoring - try `,rem`, `,rel` to extract methods or let statements
- * `Ctrl-s` - Open related spec in a split. Similar to :A and :AV from rails.vim but is also aware of the fast_spec dir and faster to type
- * `:Bopen [gem name]` to navigate to a gem (@tpope/vim-bundler)
- * `,gcp` - Grep Current Partial to find references to the current view partial
- * `,orb` - outer ruby block. takes you one level up from nested blocks (great for rspec)
 
 #### Vim Dev
 
  * `,vc` - (Vim Command) copies the command under your cursor and executes it in vim. Great for testing single line changes to vimrc.
  * `,vr` - (Vim Reload) source current file as a vim file
 
-## Extending and overriding YADR settings
+## Extending and overriding YADR-Slim settings
 
 * [Debugging vim keymappings](doc/vim/keymaps.md)
 * [Overriding vim settings with ~/.vimrc.after and friends](doc/vim/override.md)
 * [Adding your own vim plugins](doc/vim/manage_plugins.md)
 
 ## Testing with Docker
+
+:warning: Linux is not officially supported. The main goal of the project is to provide a full featured environment for macOS only.
 
 We can use Docker to test some changes in a **Linux** Container.
 
@@ -330,10 +324,3 @@ Installing terminal vim (with lua) with an RVM managed Ruby can cause the neocom
 brew uninstall vim
 rvm system do brew install vim --with-lua
 ```
-
-### [Pry](https://pryrepl.org/)
-
-Pry offers a much better out of the box IRB experience with colors, tab completion, and lots of other tricks. You can also use it
-as an actual debugger by installing [pry-nav](https://github.com/nixme/pry-nav).
-
-[Learn more about YADR's pry customizations and how to install](doc/pry.md)
